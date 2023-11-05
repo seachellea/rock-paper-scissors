@@ -1,0 +1,31 @@
+INITIAL PSEUDOCODE 
+
+SET getComputerChoice()
+    SET random(0, 3)
+        RETURN random result
+
+SET getPlayerChoice()
+    PROMPT player choice
+        RETURN player choice
+
+SET playRound(playerSelection, computerSelection)
+    IF (scissors, paper || paper, rock || rock, scissors)
+        THEN player wins
+        player++
+    ELSE IF (paper, rock || paper, scissors || scissors, rock )
+        THEN computer wins 
+        computer++
+    ELSE IF (scissors, scissors || paper, paper || rock, rock)
+        THEN its a tie
+    
+SET game()
+//scorekeeping logic
+    IF gameRound < 5; gameRound ++ {
+        playRound()
+        console.log(Results)
+        gameRound++
+    }
+
+    console.log(Winner);
+        
+
