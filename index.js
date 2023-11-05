@@ -28,3 +28,23 @@ const getPlayerChoice = () => {
 
 const playerChoice = getPlayerChoice();
 console.log(playerChoice);
+
+// ======== PROMPT PLAYER CHOICE ============ //
+
+const playRound = (playerChoice, computerChoice) => {
+    
+    if (playerChoice === computerChoice) {
+        return "It's a tie!";
+    }
+    else if (playerChoice === "Scissors" && computerChoice === "Paper" ||
+    playerChoice === "Paper" && computerChoice === "Rock" ||
+    playerChoice === "Rock" && computerChoice === "Scissors") {
+        return `Player wins this round! ${playerChoice} beats ${computerChoice}.`;
+    }
+    else {
+        return `Computer wins this round. ${computerChoice} beats ${playerChoice}.`;
+    }
+}
+
+const roundResult = playRound(playerChoice, computerChoice);
+console.log(roundResult);
