@@ -12,3 +12,19 @@ const getComputerChoice = () => {
 
 const computerChoice = getComputerChoice();
 console.log(computerChoice);
+
+// ======== PROMPT PLAYER CHOICE ============ //
+
+const getPlayerChoice = () => {
+    let pChoice = prompt("What is your pick? (Rock, Paper, Scissors): ");
+    pChoice = pChoice.charAt(0).toUpperCase() + pChoice.slice(1).toLowerCase();
+
+    if (pChoice === "Rock" || pChoice === "Paper" || pChoice === "Scissors") {
+        return pChoice;
+    } else {
+        return "Invalid choice";
+    }
+}
+
+const playerChoice = getPlayerChoice();
+console.log(playerChoice);
