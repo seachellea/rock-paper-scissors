@@ -13,15 +13,13 @@ const getComputerChoice = () => {
     }
 }
 
-const computerChoice = getComputerChoice();
-// console.log(`Computer chose: ${computerChoice}`);
-
-// ======== GAME 5 ROUNDS ============ //
+// ======== GAME LOOP FOR 5 ROUNDS ============ //
 
 const game = () => {
 
-
     for (round = 1; round <= 5; round ++) {
+
+        console.log(`Round #${round}`);
 
         // ======== PROMPT PLAYER CHOICE ============ //
         const getPlayerChoice = () => {
@@ -36,10 +34,9 @@ const game = () => {
         }
 
         const playerChoice = getPlayerChoice();
-        // console.log(`You chose: ${playerChoice}`); 
+        const computerChoice = getComputerChoice();
 
-        console.log(`Round #${round}`);
-
+        // ======== PLAYER & COMPUTER CHOICE VERIFICATION ============ //
         const playRound = (playerChoice, computerChoice) => {
     
             if (playerChoice === computerChoice) {
@@ -62,6 +59,13 @@ const game = () => {
         const roundResult = playRound(playerChoice, computerChoice);
         console.log(roundResult);
         console.log(`Your score: ${playerScore} | Computer score: ${computerScore}`); 
+    }
+
+    if (playerScore > computerScore) {
+        console.log("FINAL RESULT: You win the game! Congratulations!");
+    }
+    else {
+        console.log("FINAL RESULT: Computer won the game. Better luck next time!");
     }
 }
 
