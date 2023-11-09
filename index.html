@@ -10,56 +10,48 @@
 </head>
 <body>
 
-    <main class="main">
-        <div class="header">
-            <h1 class="title">ROCK PAPER SCISSORS</h1>
-        </div>
+    <main class="container">
+
+       <header class="header">ROCK PAPER SCISSORS</header>
 
         <div class="main-content">
-
-            <div class="result-weapon-cont">
-                <div class="result-text">
-                    <h2 id="result-winner">CHOOSE YOUR WEAPON</h2>
-                    <h3 id="result-description">First to score 5 points wins the game</h3>
+            <div class="scoreboard">
+                <div class="scoreboard-heading">
+                    <h2 id="winner-result">CHOOSE YOUR WEAPON</h2>
+                    <h3 id="round-descrip">First to score 5 points wins the game</h3>
                 </div>
     
-                <div class="display-weapon-score">
-                    <div class="box player">
-                        <div class="weapon">
-                            <i id="player-weapon" class="fa-solid fa-question" style="color: #e5931c;"></i>
-                        </div>
-                        <p id="player-score">Player: 0</p>
+                <div class="display-choice">
+                    <div class="box-result">
+                        <i class="fa-solid fa-question fa-4x" style="color: #e5931c;"></i>
                     </div>
-                    <div class="box computer">
-                        <div class="weapon">
-                            <i id="computer-weapon" class="fa-solid fa-question" style="color: #e5931c;"></i>
-                        </div>
-                        <p id="computer-score">Computer: 0</p>
+                    <div class="box-result">
+                        <i class="fa-solid fa-question fa-4x" style="color: #e5931c;"></i>
                     </div>
+                </div>
+    
+                <div class="display-score">
+                    <p id="player-score">Player: 0</p>
+                    <p id="computer-score">Computer: 0</p>
                 </div>
             </div>
-            
-
+    
             <div class="rps-choices">
-                <div class="choice">
+                <div class="rps-box box-1">
                     <i class="fa-regular fa-hand-back-fist fa-rotate-90" style="color: #ab0047;"></i>
                 </div>
-
-                <div class="choice">
+                <div class="rps-box box-2">
                     <i class="fa-regular fa-hand" style="color: #ab0047;"></i>
                 </div>
-
-                <div class="choice">
+                <div class="rps-box box-3">
                     <i class="fa-regular fa-hand-scissors" style="color: #ab0047;"></i>
                 </div>
             </div>
         </div>
 
-        <div class="footer">
+        <footer class="footer">
             <p>created by seachelle</p>
-            <i class="fa-brands fa-github" style="color: #fddd8b;"></i>
-        </div>
-
+        </footer>
 
     </main>
 </body>

@@ -22,88 +22,90 @@ font-family: 'Press Start 2P', sans-serif; */
 }
 
 body {
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
     background-color: var(--main-bg);
 }
 
-.main {
-    max-width: 47%;
-    background-color: var(--body-purple);
-    position: absolute;
-    top: 0;
-	bottom: 0;
-    left: 0;
-    right: 0;
-	margin: auto;
-	height: 50vh;
-    border-radius: 10px;
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 37%;
 }
-    
+
 .header {
+    background-color: var(--body-accent);
     font-family: 'Press Start 2P', sans-serif;
     text-align: center;
-    background-color: var(--body-accent);
-    padding: 25px 0;
+    color: var(--text-result-bg);
+    padding: 18px 0;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
 }
 
-.header h1 {
-    font-size: 1.2rem;
-    color: var(--text-result-bg);
-    letter-spacing: 3px;
-}
-
 .main-content {
+    background-color: var(--body-purple);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     font-family: 'Play', sans-serif;
-    display: flex;
-    flex-direction: column;
 }
 
-.result-weapon-cont {
+.scoreboard {
     background-color: var(--body-accent);
-    margin: 30px 70px;
-    border-radius: 5px;
+    width: 80%;
+    margin: 20px 0;
+    border-radius: 5px; 
     color: var(--text-result-bg);
-    padding: 10px;
-    /* width: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; */
-}
-
-.result-text {
     text-align: center;
 }
 
-.result-text #result-winner {
-    font-size: 1.3rem;
+.scoreboard-heading {
+    padding: 10px 0;
+}
+.scoreboard-heading #winner-result {
+    font-size: 1.2rem;
     letter-spacing: 2px;
 }
 
-.result-text #result-description {
+.scoreboard-heading #round-descrip {
     font-size: 0.9rem;
     font-weight: 400;
 }
 
-.display-weapon-score {
+.display-choice {
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 50px;
+    margin: 15px 0;
 }
 
-.display-weapon-score .weapon {
+.box-result {
+    padding: 10px 25px;
+    border: 5px solid var(--result-border);
     background-color: var(--text-result-bg);
-    max-width: 170px;
+    border-radius: 7px;
+}
+
+.display-score {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 10px 0;
+}
+
+.rps-choices {
+    display: flex;
+
+}
+.rps-box {
+    border: 3px solid var(--btn-border);
 }
 
 .footer {
-    font-family: 'Play', sans-serif;
     background-color: var(--body-accent);
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    color: var(--text-result-bg);
-    padding: 10px;
 }
+
+
+
