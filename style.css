@@ -32,7 +32,7 @@ body {
 .container {
     display: flex;
     flex-direction: column;
-    width: 37%;
+    width: 450px;
 }
 
 .header {
@@ -75,11 +75,17 @@ body {
     font-weight: 400;
 }
 
-.display-choice {
+.display-result {
     display: flex;
     justify-content: center;
-    gap: 50px;
-    margin: 15px 0;
+    gap: 40px;
+    margin: 10px;
+}
+
+.display-box {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .box-result {
@@ -87,12 +93,6 @@ body {
     border: 5px solid var(--result-border);
     background-color: var(--text-result-bg);
     border-radius: 7px;
-}
-
-.display-score {
-    display: flex;
-    justify-content: space-evenly;
-    margin: 10px 0;
 }
 
 .rps-choices {
