@@ -7,7 +7,7 @@
     --text-result-bg: rgb(253,221,139);
     --result-border: rgb(229,147,28);
     --btn-bg: rgb(248,168,168);
-    --btn-border: rgb(185,31,89);
+    --btn-border: rgb(173, 0, 72);
     --btn-hover-bg: rgb(255,201,201);
     --btn-hover-border: rgb(214,22,105);
 }
@@ -56,18 +56,21 @@ body {
 .scoreboard {
     background-color: var(--body-accent);
     width: 80%;
-    margin: 20px 0;
+    margin: 30px 0;
     border-radius: 5px; 
     color: var(--text-result-bg);
     text-align: center;
+    padding: 10px 0;
 }
 
 .scoreboard-heading {
     padding: 10px 0;
 }
+
 .scoreboard-heading #winner-result {
     font-size: 1.2rem;
     letter-spacing: 2px;
+    padding-bottom: 5px;
 }
 
 .scoreboard-heading #round-descrip {
@@ -97,14 +100,34 @@ body {
 
 .rps-choices {
     display: flex;
-
+    width: 80%;
+    justify-content: space-between;
+    margin-bottom: 30px;
 }
+
 .rps-box {
-    border: 3px solid var(--btn-border);
+    border: 5px solid var(--btn-border);
+    background-color: var(--btn-bg);
+    border-radius: 5px;
+    padding: 10px 15px;
 }
 
-.footer {
+footer {
     background-color: var(--body-accent);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    font-family: 'Play', sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+}
+
+footer p {
+    color: var(--text-result-bg);
+    text-align: center;
+    margin: 10px 0;
+    letter-spacing: 1px;
 }
 
 
