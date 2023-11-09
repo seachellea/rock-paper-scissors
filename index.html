@@ -4,9 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
-    <script src="index.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="index.js" defer></script>
 </head>
 <body>
+
+    <main class="main">
+        <div class="header">
+            <h1 class="title">ROCK PAPER SCISSORS</h1>
+        </div>
+
+        <div class="main-content">
+
+            <div class="result-weapon-cont">
+                <div class="result-text">
+                    <h2 id="result-winner">CHOOSE YOUR WEAPON</h2>
+                    <h3 id="result-description">First to score 5 points wins the game</h3>
+                </div>
     
+                <div class="display-weapon-score">
+                    <div class="box player">
+                        <div class="weapon">
+                            <i id="player-weapon" class="fa-solid fa-question" style="color: #e5931c;"></i>
+                        </div>
+                        <p id="player-score">Player: 0</p>
+                    </div>
+                    <div class="box computer">
+                        <div class="weapon">
+                            <i id="computer-weapon" class="fa-solid fa-question" style="color: #e5931c;"></i>
+                        </div>
+                        <p id="computer-score">Computer: 0</p>
+                    </div>
+                </div>
+            </div>
+            
+
+            <div class="rps-choices">
+                <div class="choice">
+                    <i class="fa-regular fa-hand-back-fist fa-rotate-90" style="color: #ab0047;"></i>
+                </div>
+
+                <div class="choice">
+                    <i class="fa-regular fa-hand" style="color: #ab0047;"></i>
+                </div>
+
+                <div class="choice">
+                    <i class="fa-regular fa-hand-scissors" style="color: #ab0047;"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>created by seachelle</p>
+            <i class="fa-brands fa-github" style="color: #fddd8b;"></i>
+        </div>
+
+
+    </main>
 </body>
 </html>
