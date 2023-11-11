@@ -54,6 +54,8 @@ body {
     flex-direction: column;
     align-items: center;
     font-family: 'Play', sans-serif;
+    border-left: 7px solid var(--body-accent);
+    border-right: 7px solid var(--body-accent);
 }
 
 .scoreboard {
@@ -112,7 +114,7 @@ body {
     border: 5px solid var(--btn-border);
     background-color: var(--btn-bg);
     border-radius: 5px;
-    padding: 10px 15px;
+    padding: 15px 20px;
 }
 
 footer {
@@ -134,5 +136,37 @@ footer p {
     font-size: 0.8rem;
 }
 
+/* ================= CSS HOVER AND ANIMATION ================= */
 
+#rock-btn:hover,
+#rock-btn:hover .fa-hand-back-fist:before {
+    border-color: var(--btn-hover-border);
+    background-color: var(--btn-hover-bg);
+    cursor: pointer;
+}
 
+#rock-btn:hover .fa-hand-back-fist:before {
+    color: var(--btn-hover-border);
+}
+
+#paper-btn:hover,
+#paper-btn:hover .fa-hand:before {
+    border-color: var(--btn-hover-border);
+    background-color: var(--btn-hover-bg); /* Apply background color to the button */
+    cursor: pointer;
+}
+
+#paper-btn:hover .fa-hand:before {
+    color: var(--btn-hover-border); /* Apply color to the icon */
+}
+
+#scissors-btn:hover,
+#scissors-btn:hover .fa-hand-scissors:before {
+    border-color: var(--btn-hover-border);
+    background-color: var(--btn-hover-bg);
+    cursor: pointer;
+}
+
+#scissors-btn:hover .fa-hand-scissors:before {
+    color: var(--btn-hover-border);
+}

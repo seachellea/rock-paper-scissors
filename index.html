@@ -25,14 +25,14 @@
                 <div class="display-result">
                     <div class="display-box player">
                         <div class="box-result">
-                            <i class="fa-solid fa-question fa-4x" style="color: #e5931c;"></i>
+                            <i id="player-choice" class="fa-solid fa-question fa-4x" style="color: #e5931c;"></i>
                         </div>
                         <p id="player-score">Player: 0</p>    
                     </div>
         
                     <div class="display-box computer">
                         <div class="box-result">
-                            <i class="fa-solid fa-question fa-4x" style="color: #e5931c;"></i>
+                            <i id="computer-choice" class="fa-solid fa-question fa-4x" style="color: #e5931c;"></i>
                         </div>
                         <p id="computer-score">Computer: 0</p>
                     </div>
@@ -40,18 +40,16 @@
                 
             </div>
 
-
-    
             <div class="rps-choices">
-                <div class="rps-box box-1">
-                    <i class="fa-regular fa-hand-back-fist fa-rotate-90 fa-4x" style="color: #ab0047;"></i>
-                </div>
-                <div class="rps-box box-2">
+                <button class="rps-box" id="rock-btn">
+                    <i id="rock-icon" class="fa-regular fa-hand-back-fist fa-rotate-90 fa-4x" style="color: #ab0047;"></i>
+                </button>
+                <button class="rps-box" id="paper-btn"> 
                     <i class="fa-regular fa-hand fa-4x" style="color: #ab0047;"></i>
-                </div>
-                <div class="rps-box box-3">
+                </button>
+                <button class="rps-box" id="scissors-btn">
                     <i class="fa-regular fa-hand-scissors fa-4x" style="color: #ab0047;"></i>
-                </div>
+                </button>
             </div>
         </div>
 

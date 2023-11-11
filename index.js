@@ -1,17 +1,51 @@
-// let playerScore = 0;
-// let computerScore = 0;
+// Variables
+const winnerResult = document.getElementById('winner-result');
+const roundDescription = document.getElementById('round-descrip');
+const displayContainer = document.getElementsByClassName('rps-box');
+const playerIconChoice = document.getElementById('player-choice');
+const computerIconChoice = document.getElementById('computer-choice');
 
-// const getComputerChoice = () => {
-//     let random = Math.floor(Math.random() * 3);
+const rockBtn = document.querySelector('#rock-btn');
+const paperBtn = document.querySelector('#paper-btn');
+const scissorsBtn = document.querySelector('#scissors-btn');
 
-//     if (random === 0) {
-//         return "Rock";
-//     } else if (random === 1) {
-//         return "Paper";
-//     } else {
-//         return "Scissors";
-//     }
-// }
+const rockIcon = document.querySelector('#rock-icon');
+
+let playerScore = 0;
+let computerScore = 0;
+
+const getComputerChoice = () => {
+    let random = Math.floor(Math.random() * 3);
+
+    if (random === 0) {
+        return "Rock";
+    } else if (random === 1) {
+        return "Paper";
+    } else {
+        return "Scissors";
+    }
+}
+
+const computerChoice = getComputerChoice();
+let playerChoice = "";
+console.log(computerChoice);
+
+rockBtn.addEventListener('click', () => {
+    playerChoice = "Rock";
+    console.log(playerChoice);
+    
+})
+
+paperBtn.addEventListener('click', () => {
+    playerChoice = "Paper";
+    console.log(playerChoice);
+})
+
+scissorsBtn.addEventListener('click', () => {
+    playerChoice = "Scissors";
+    console.log(playerChoice);
+})
+
 
 // // ======== GAME LOOP FOR 5 ROUNDS ============ //
 
@@ -37,23 +71,23 @@
 //         const computerChoice = getComputerChoice();
 
 //         // ======== PLAYER & COMPUTER CHOICE VERIFICATION ============ //
-//         const playRound = (playerChoice, computerChoice) => {
+        // const playRound = (playerChoice, computerChoice) => {
     
-//             if (playerChoice === computerChoice) {
-//                 return "It's a tie!";
-//             }
-//             else if (playerChoice === "Scissors" && computerChoice === "Paper" ||
-//             playerChoice === "Paper" && computerChoice === "Rock" ||
-//             playerChoice === "Rock" && computerChoice === "Scissors") {
-//                 playerScore++;
-//                 return `You win! ${playerChoice} beats ${computerChoice}.`;
+        //     if (playerChoice === computerChoice) {
+        //         return "It's a tie!";
+        //     }
+        //     else if (playerChoice === "Scissors" && computerChoice === "Paper" ||
+        //     playerChoice === "Paper" && computerChoice === "Rock" ||
+        //     playerChoice === "Rock" && computerChoice === "Scissors") {
+        //         playerScore++;
+        //         return `You win! ${playerChoice} beats ${computerChoice}.`;
 
-//             }
-//             else {
-//                 computerScore++;
-//                 return `Computer wins. ${computerChoice} beats ${playerChoice}.`;
-//             }
-//         }
+        //     }
+        //     else {
+        //         computerScore++;
+        //         return `Computer wins. ${computerChoice} beats ${playerChoice}.`;
+        //     }
+        // }
         
 //         console.log(`You chose: ${playerChoice}; Computer chose: ${computerChoice}`);
 //         const roundResult = playRound(playerChoice, computerChoice);
