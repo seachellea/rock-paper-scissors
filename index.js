@@ -11,13 +11,14 @@ const rockBtn = document.querySelector('#rock-btn'); // button of rock that user
 const paperBtn = document.querySelector('#paper-btn'); // button of paper that user will click
 const scissorsBtn = document.querySelector('#scissors-btn'); // button of scissors that user will click
 
+const rockIcon = document.querySelector('#rock-icon');
 const displayPlayerScore = document.querySelector('#player-score');
 const displayComputerScore = document.querySelector('#computer-score');
 
 let playerScore = 0;
 let computerScore = 0;
 
-const getComputerChoice = () => {
+const initializeComputerChoice = () => {
     let random = Math.floor(Math.random() * 3);
 
     switch(random) {
@@ -139,7 +140,7 @@ const computerChoiceScissors = () => {
 
 
 const displayComputerChoice = () => {
-    const computerChoice = getComputerChoice();
+    const computerChoice = initializeComputerChoice();
 
     switch (computerChoice) {
         case "Rock":
@@ -156,13 +157,10 @@ const displayComputerChoice = () => {
     return computerChoice;
 }
 
-rockBtn.addEventListener('click', (e) => {
 
-    const playerChoice = "Rock";
+rockBtn.addEventListener('click', () => {
+    const playerChoice = "Rock"
     computerChoice = displayComputerChoice();
-
-    console.log(`Player choice: ${playerChoice}`);
-    console.log(`Computer choice: ${computerChoice}`);
 
     playerChoiceRock();
 
@@ -183,16 +181,52 @@ rockBtn.addEventListener('click', (e) => {
 })
 
 paperBtn.addEventListener('click', () => {
-    console.log("Player choice: Paper");
-    playerChoicePaper(); 
-    displayComputerChoice();
+    const playerChoice = "Paper";
+    computerChoice = displayComputerChoice();
+    playerChoicePaper();
+
+    if (playerChoice === "Paper" && computerChoice === "Paper") {
+        winnerResult.innerText = "IT'S A TIE";
+        roundDescription.innerText = "Both entered the same choice";
+    } else if (playerChoice === "Paper" && computerChoice === "Scissors") {
+        winnerResult.innerText = "COMPUTER WINS";
+        roundDescription.innerText = "Scissors beats Paper";
+        computerScore++
+        displayComputerScore.innerText = `Computer: ${computerScore}`;
+    } else if (playerChoice === "Paper" && computerChoice === "Rock") {
+        winnerResult.innerText = "YOU WIN";
+        roundDescription.innerText = "Paper beats Rock";
+        playerScore++;
+        displayPlayerScore.innerText = `Player: ${playerScore}`;
+    }
 })
 
 scissorsBtn.addEventListener('click', () => {
-    console.log("Player choice: Scissors");
+    const playerChoice = "Scissors";
+    computerChoice = displayComputerChoice();
     playerChoiceScissors(); 
-    displayComputerChoice();
+
+    if (playerChoice === "Scissors" && computerChoice === "Scissors") {
+        winnerResult.innerText = "IT'S A TIE";
+        roundDescription.innerText = "Both entered the same choice";
+    } else if (playerChoice === "Scissors" && computerChoice === "Rock") {
+        winnerResult.innerText = "COMPUTER WINS";
+        roundDescription.innerText = "Rock beats Scissors";
+        computerScore++
+        displayComputerScore.innerText = `Computer: ${computerScore}`;
+    } else if (playerChoice === "Scissors" && computerChoice === "Paper") {
+        winnerResult.innerText = "YOU WIN";
+        roundDescription.innerText = "Scissors beats Paper";
+        playerScore++;
+        displayPlayerScore.innerText = `Player: ${playerScore}`;
+    }
 })
+
+const displayModal = () => {
+    if (playerScore === 5 || computerScore === 5) {
+        // insert modal here
+    }
+}
 
 
 // // ======== GAME LOOP FOR 5 ROUNDS ============ //
