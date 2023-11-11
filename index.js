@@ -14,36 +14,37 @@ const scissorsBtn = document.querySelector('#scissors-btn'); // button of scisso
 const displayPlayerScore = document.querySelector('#player-score');
 const displayComputerScore = document.querySelector('#computer-score');
 
+let modalContainer = document.querySelector('.modal-container');
+const playAgainBtn = document.querySelector('#modal-button');
+const modalMessage = document.querySelector('#modal-message');
+
 let playerScore = 0;
 let computerScore = 0;
 let playerChoice, computerChoice;
 
 const getComputerChoice = () => {
-    // the generated random number is stored in the displayComputerChoice
-    // the result will also be displayed in the UI
-    
     const random = Math.floor(Math.random() * 1000);
 
     if (random % 3 === 0) {
         computerChoiceIcon.classList.remove('fa-question');
         computerChoiceIcon.classList.remove('fa-hand-scissors');
         computerChoiceIcon.classList.remove('fa-hand');
-        computerChoiceIcon.classList.add('fa-hand-back-fist', 'fa-rotate-270', 'fa-2x');
-        computerChoiceContainer.style.padding = '10px 19px';
+        computerChoiceIcon.classList.add('fa-hand-back-fist', 'fa-rotate-270');
+        computerChoiceContainer.style.padding = '10px 17px';
         return 'Rock';
     } else if (random % 3 === 1) {
         computerChoiceIcon.classList.remove('fa-question');
-        computerChoiceIcon.classList.remove('fa-hand-back-fist', 'fa-rotate-270', 'fa-2x');
+        computerChoiceIcon.classList.remove('fa-hand-back-fist', 'fa-rotate-270');
         computerChoiceIcon.classList.remove('fa-hand-scissors');
-        computerChoiceIcon.classList.add('fa-hand', 'fa-2x');
-        computerChoiceContainer.style.padding = '10px 15px';
+        computerChoiceIcon.classList.add('fa-hand');
+        computerChoiceContainer.style.padding = '10px 13px';
         return 'Paper';
     } else {
         computerChoiceIcon.classList.remove('fa-question');
-        computerChoiceIcon.classList.remove('fa-hand-back-fist', 'fa-rotate-270', 'fa-2x');
+        computerChoiceIcon.classList.remove('fa-hand-back-fist', 'fa-rotate-270');
         computerChoiceIcon.classList.remove('fa-hand');
         computerChoiceIcon.classList.add('fa-hand-scissors');
-        computerChoiceContainer.style.padding = '10px 15px';
+        computerChoiceContainer.style.padding = '10px 13px';
         return 'Scissors';
     }
 }
@@ -54,37 +55,56 @@ const getPlayerChoice = (buttonId) => {
     
     // Determine player's choice based on the button clicked
     if (buttonId === 'rock-btn') {
-        playerChoiceIcon.classList.add('fa-hand-back-fist', 'fa-rotate-90', 'fa-2x');
+        playerChoiceIcon.classList.add('fa-hand-back-fist', 'fa-rotate-90',);
         playerChoiceContainer.style.padding = '10px 17px';
         return 'Rock';
     } else if (buttonId === 'paper-btn') {
-        playerChoiceIcon.classList.add('fa-hand', 'fa-1x');
+        playerChoiceIcon.classList.add('fa-hand');
         playerChoiceContainer.style.padding = '10px 13px';
         return 'Paper';
     } else if (buttonId === 'scissors-btn') {
-        playerChoiceIcon.classList.add('fa-hand-scissors', 'fa-flip-horizontal', 'fa-1x');
+        playerChoiceIcon.classList.add('fa-hand-scissors', 'fa-flip-horizontal');
         playerChoiceContainer.style.padding = '10px 13px';
         return 'Scissors';
     }
 };
 
-rockBtn.addEventListener('click', () => {
-    playerChoice = getPlayerChoice('rock-btn');
-    computerChoice = getComputerChoice();
-    evaluateRound(computerChoice, playerChoice);
-});
+const playGame = () => {
+    rockBtn.addEventListener('click', () => {
+        playerChoice = getPlayerChoice('rock-btn');
+        computerChoice = getComputerChoice();
+        evaluateRound(computerChoice, playerChoice);
+    });
+    
+    paperBtn.addEventListener('click', () => {
+        playerChoice = getPlayerChoice('paper-btn');
+        computerChoice = getComputerChoice();
+        evaluateRound(computerChoice, playerChoice);
+    });
+    
+    scissorsBtn.addEventListener('click', () => {
+        playerChoice = getPlayerChoice('scissors-btn');
+        computerChoice = getComputerChoice();
+        evaluateRound(computerChoice, playerChoice);
+    });
+}
 
-paperBtn.addEventListener('click', () => {
-    playerChoice = getPlayerChoice('paper-btn');
-    computerChoice = getComputerChoice();
-    evaluateRound(computerChoice, playerChoice);
-});
-
-scissorsBtn.addEventListener('click', () => {
-    playerChoice = getPlayerChoice('scissors-btn');
-    computerChoice = getComputerChoice();
-    evaluateRound(computerChoice, playerChoice);
-});
+const evaluateRound = (computerChoice, playerChoice) => {
+    if (playerChoice === computerChoice) {
+        updateScoreboard('TIE');
+        showModal();
+    }
+    else if (playerChoice === "Scissors" && computerChoice === "Paper" ||
+    playerChoice === "Paper" && computerChoice === "Rock" ||
+    playerChoice === "Rock" && computerChoice === "Scissors") {
+        updateScoreboard('PLAYER');
+        showModal();
+    }
+    else {
+        updateScoreboard('COMPUTER');
+        showModal();
+    }
+}
 
 const updateScoreboard = (result) => {
     if (result === 'TIE') {
@@ -103,16 +123,52 @@ const updateScoreboard = (result) => {
     }
 };
 
-const evaluateRound = (computerChoice, playerChoice) => {
-    if (playerChoice === computerChoice) {
-        updateScoreboard('TIE');
-    }
-    else if (playerChoice === "Scissors" && computerChoice === "Paper" ||
-    playerChoice === "Paper" && computerChoice === "Rock" ||
-    playerChoice === "Rock" && computerChoice === "Scissors") {
-        updateScoreboard('PLAYER');
-    }
-    else {
-        updateScoreboard('COMPUTER');
+const showModal = () => {
+    if (playerScore === 5 || computerScore === 5) {
+        modalContainer.style.display = 'block';
+
+        if(playerScore === 5) {
+            modalMessage.innerText = "YOU WON";
+        } else if (computerScore === 5) {
+            modalMessage.innerText = "YOU LOST";
+        } else {
+            modalMessage.innerText = "IT'S A TIE";
+        }
+        
+    } else {
+        modalContainer.style.display = 'none';
     }
 }
+
+playAgainBtn.addEventListener('click', () => {
+    resetGame();
+})
+
+const resetGame = () => {
+    // Reset scores
+    playerScore = 0;
+    computerScore = 0;
+    
+    winnerResult.innerText = 'CHOOSE YOUR WEAPON';
+    roundDescription.innerText = 'First to score 5 points wins the game';
+
+    playerChoiceIcon.classList.remove('fa-question', 'fa-hand', 'fa-hand-back-fist', 'fa-rotate-90', 'fa-hand-scissors', 'fa-flip-horizontal');
+    playerChoiceIcon.classList.add('fa-question');
+    playerChoiceContainer.style.padding = '10px 25px';
+    computerChoiceIcon.classList.remove('fa-question', 'fa-hand', 'fa-hand-back-fist', 'fa-rotate-90', 'fa-hand-scissors', 'fa-flip-horizontal', 'fa-rotate-270');
+    computerChoiceIcon.classList.add('fa-question');
+    computerChoiceContainer.style.padding = '10px 25px';
+
+    // Reset score displays
+    displayPlayerScore.innerText = 'Player: 0';
+    displayComputerScore.innerText = 'Computer: 0';
+
+    // Reset modal message
+    modalMessage.innerText = '';
+
+    // Hide modal
+    modalContainer.style.display = 'none';
+};
+
+playGame();
+showModal();
