@@ -1,28 +1,36 @@
-// Variables
+// Variables for the scoreboard heading for result modification
 const winnerResult = document.getElementById('winner-result'); // will display who won (PLAYER WINS)
 const roundDescription = document.getElementById('round-descrip'); // will display details of that round (Paper beats Rock)
 
-const playerChoiceContainer = document.getElementById('player-result'); // parent element/container of the icon that will display the choices of computer and player
-const playerChoiceIcon = document.getElementById('player-choice'); // icon that will display the choice of player
-const computerChoiceContainer = document.getElementById('computer-result'); // parent element/container of the icon that will display computer choice
-const computerChoiceIcon = document.getElementById('computer-choice'); // icon that will display the choice of comp
+// variables for the icon container and icon itself 
+const playerChoiceContainer = document.getElementById('player-result'); // container/parent element of the icon that will display player choice
+const playerChoiceIcon = document.getElementById('player-choice'); 
+const computerChoiceContainer = document.getElementById('computer-result'); // container/parent element of the icon that will display computer choice
+const computerChoiceIcon = document.getElementById('computer-choice'); 
 
-const rockBtn = document.querySelector('#rock-btn'); // button of rock that user will click
-const paperBtn = document.querySelector('#paper-btn'); // button of paper that user will click
-const scissorsBtn = document.querySelector('#scissors-btn'); // button of scissors that user will click
+// variables for buttons that will be given an eventlistener method
+const rockBtn = document.querySelector('#rock-btn'); 
+const paperBtn = document.querySelector('#paper-btn'); 
+const scissorsBtn = document.querySelector('#scissors-btn'); 
 
+// variables for score modification
 const displayPlayerScore = document.querySelector('#player-score');
 const displayComputerScore = document.querySelector('#computer-score');
 
+// variables for modal
 let modalContainer = document.querySelector('.modal-container');
 const playAgainBtn = document.querySelector('#modal-button');
 const modalMessage = document.querySelector('#modal-message');
 
 let playerScore = 0;
 let computerScore = 0;
+
+// assigning it as a global variable for easier access
 let playerChoice, computerChoice;
 
 const getComputerChoice = () => {
+    // initializes a random number for the computer choice
+    // And has the capability to modify the icon to be displayed
     const random = Math.floor(Math.random() * 1000);
 
     if (random % 3 === 0) {
@@ -54,6 +62,8 @@ const getPlayerChoice = (buttonId) => {
     playerChoiceIcon.classList.remove('fa-question', 'fa-hand', 'fa-hand-back-fist', 'fa-rotate-90', 'fa-hand-scissors', 'fa-flip-horizontal');
     
     // Determine player's choice based on the button clicked
+    // And edits the icon to be displayed in the player choice icon part (left container)
+    // It also returns the value which is stored in the playerChoice variable
     if (buttonId === 'rock-btn') {
         playerChoiceIcon.classList.add('fa-hand-back-fist', 'fa-rotate-90',);
         playerChoiceContainer.style.padding = '10px 17px';
@@ -70,6 +80,9 @@ const getPlayerChoice = (buttonId) => {
 };
 
 const playGame = () => {
+    // contains the event listeners for the buttons
+    // computerChoice is invoked here because it is only right for the computer choice to display
+        // once the user clicks on a button
     rockBtn.addEventListener('click', () => {
         playerChoice = getPlayerChoice('rock-btn');
         computerChoice = getComputerChoice();
@@ -90,6 +103,9 @@ const playGame = () => {
 }
 
 const evaluateRound = (computerChoice, playerChoice) => {
+    // updateScoreBoard is placed here because this function evaluate both player choices
+    // the showModal function is invoked here because along with it is the 
+        // updateScoreboard which increments and displays the score every round
     if (playerChoice === computerChoice) {
         updateScoreboard('TIE');
         showModal();
@@ -107,6 +123,8 @@ const evaluateRound = (computerChoice, playerChoice) => {
 }
 
 const updateScoreboard = (result) => {
+    // Modifies the scoreboard heading based on the result of each round
+    // Increments player/computer score if win
     if (result === 'TIE') {
         winnerResult.innerText = "IT'S A TIE";
         roundDescription.innerText = "Both entered the same choice";
@@ -125,6 +143,7 @@ const updateScoreboard = (result) => {
 
 const showModal = () => {
     if (playerScore === 5 || computerScore === 5) {
+        // Displays modal when one of the players reaches 5 points
         modalContainer.style.display = 'block';
 
         if(playerScore === 5) {
@@ -136,6 +155,7 @@ const showModal = () => {
         }
         
     } else {
+        // Hides modal until one of the players reaches 5 points
         modalContainer.style.display = 'none';
     }
 }
@@ -149,9 +169,11 @@ const resetGame = () => {
     playerScore = 0;
     computerScore = 0;
     
+    // Reset round descriptions
     winnerResult.innerText = 'CHOOSE YOUR WEAPON';
     roundDescription.innerText = 'First to score 5 points wins the game';
 
+    // Reset icons
     playerChoiceIcon.classList.remove('fa-question', 'fa-hand', 'fa-hand-back-fist', 'fa-rotate-90', 'fa-hand-scissors', 'fa-flip-horizontal');
     playerChoiceIcon.classList.add('fa-question');
     playerChoiceContainer.style.padding = '10px 25px';
