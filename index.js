@@ -6,7 +6,6 @@ const playerIconChoice = document.getElementById('player-choice'); // icon that 
 const computerChoiceContainer = document.getElementById('computer-result'); // parent element/container of the icon that will display computer choice
 // const computerIconChoice = document.getElementById('computer-choice'); // icon that will display the choice of comp
 
-// const icon = document.querySelector('i');
 
 const rockBtn = document.querySelector('#rock-btn'); // button of rock that user will click
 const paperBtn = document.querySelector('#paper-btn'); // button of paper that user will click
@@ -35,6 +34,8 @@ console.log(`Computer choice is: ${computerChoice}`);
 
 rockBtn.addEventListener('click', () => {
 
+    console.log(`Player choice: Rock`);
+
     if(playerIconChoice.classList.contains('fa-question')) {
         playerIconChoice.classList.remove('fa-question')
         playerIconChoice.classList.add('fa-regular', 'fa-hand-back-fist', 'fa-rotate-90', 'fa-2x');
@@ -42,6 +43,11 @@ rockBtn.addEventListener('click', () => {
         playerChoiceContainer.style.padding = '10px 17px';
     } else if (playerIconChoice.classList.contains('fa-hand')) {
         playerIconChoice.classList.remove('fa-hand')
+        playerIconChoice.classList.add('fa-regular', 'fa-hand-back-fist', 'fa-rotate-90', 'fa-2x');
+        playerIconChoice.style.backgroundColor = '#fddd8b';
+        playerChoiceContainer.style.padding = '10px 17px';
+    } else if (playerIconChoice.classList.contains('fa-hand-scissors', 'fa-flip-horizontal')) {
+        playerIconChoice.classList.remove('fa-hand-scissors', 'fa-flip-horizontal');
         playerIconChoice.classList.add('fa-regular', 'fa-hand-back-fist', 'fa-rotate-90', 'fa-2x');
         playerIconChoice.style.backgroundColor = '#fddd8b';
         playerChoiceContainer.style.padding = '10px 17px';
@@ -56,8 +62,7 @@ rockBtn.addEventListener('click', () => {
 })
 
 paperBtn.addEventListener('click', () => {
-    playerChoice = "Paper";
-    console.log(playerChoice);
+    console.log("Player choice: Paper");
 
     if(playerIconChoice.classList.contains('fa-question')) {
         playerIconChoice.classList.remove('fa-question')
@@ -69,12 +74,33 @@ paperBtn.addEventListener('click', () => {
         playerIconChoice.classList.add('fa-regular', 'fa-hand', 'fa-1x');
         playerIconChoice.style.backgroundColor = '#fddd8b';
         playerChoiceContainer.style.padding = '10px 13px';
-    } 
+    } else if (playerIconChoice.classList.contains('fa-hand-scissors', 'fa-flip-horizontal')) {
+        playerIconChoice.classList.remove('fa-hand-scissors', 'fa-flip-horizontal');
+        playerIconChoice.classList.add('fa-regular', 'fa-hand', 'fa-1x');
+        playerIconChoice.style.backgroundColor = '#fddd8b';
+        playerChoiceContainer.style.padding = '10px 13px';
+    }
 })
 
 scissorsBtn.addEventListener('click', () => {
-    playerChoice = "Scissors";
-    console.log(playerChoice);
+    console.log("Player choice: Scissors");
+
+    if(playerIconChoice.classList.contains('fa-question')) {
+        playerIconChoice.classList.remove('fa-question')
+        playerIconChoice.classList.add('fa-regular', 'fa-hand-scissors', 'fa-flip-horizontal', 'fa-1x');
+        playerIconChoice.style.backgroundColor = '#fddd8b';
+        playerChoiceContainer.style.padding = '10px 13px';
+    } else if (playerIconChoice.classList.contains('fa-hand-back-fist', 'fa-rotate-90')) {
+        playerIconChoice.classList.remove('fa-hand-back-fist', 'fa-rotate-90')
+        playerIconChoice.classList.add('fa-regular', 'fa-hand-scissors', 'fa-flip-horizontal', 'fa-1x');
+        playerIconChoice.style.backgroundColor = '#fddd8b';
+        playerChoiceContainer.style.padding = '10px 13px';
+    } else if (playerIconChoice.classList.contains('fa-hand')) {
+        playerIconChoice.classList.remove('fa-hand')
+        playerIconChoice.classList.add('fa-regular', 'fa-hand-scissors', 'fa-flip-horizontal', 'fa-1x');
+        playerIconChoice.style.backgroundColor = '#fddd8b';
+        playerChoiceContainer.style.padding = '10px 13px';
+    }
 })
 
 
