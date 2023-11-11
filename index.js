@@ -1,6 +1,7 @@
 // Variables
 const winnerResult = document.getElementById('winner-result'); // will display who won (PLAYER WINS)
 const roundDescription = document.getElementById('round-descrip'); // will display details of that round (Paper beats Rock)
+
 const playerChoiceContainer = document.getElementById('player-result'); // parent element/container of the icon that will display the choices of computer and player
 const playerIconChoice = document.getElementById('player-choice'); // icon that will display the choice of player
 const computerChoiceContainer = document.getElementById('computer-result'); // parent element/container of the icon that will display computer choice
@@ -10,7 +11,8 @@ const rockBtn = document.querySelector('#rock-btn'); // button of rock that user
 const paperBtn = document.querySelector('#paper-btn'); // button of paper that user will click
 const scissorsBtn = document.querySelector('#scissors-btn'); // button of scissors that user will click
 
-const rockIcon = document.querySelector('#rock-icon'); // actual rock icon
+const displayPlayerScore = document.querySelector('#player-score');
+const displayComputerScore = document.querySelector('#computer-score');
 
 let playerScore = 0;
 let computerScore = 0;
@@ -81,6 +83,8 @@ const playerChoiceScissors = () => {
     }
 }
 
+// ============= END: FUNCTIONS TO DISPLAY PLAYER CHOICES ============= //
+
 // ============= FUNCTIONS TO DISPLAY COMPUTER CHOICES ============= //
 
 const computerChoiceRock = () => {
@@ -131,30 +135,51 @@ const computerChoiceScissors = () => {
     }
 }
 
+// ============= END: FUNCTIONS TO DISPLAY COMPUTER CHOICES ============= //
+
+
 const displayComputerChoice = () => {
     const computerChoice = getComputerChoice();
 
     switch (computerChoice) {
         case "Rock":
-            console.log("Computer choice is Rock");
-            computerChoiceRock()
+            computerChoiceRock();
             break;
         case "Paper":
-            console.log("Computer choice: Paper");
-            computerChoicePaper()
+            computerChoicePaper();
             break;
         case "Scissors":
-            console.log("Computer choice: Scissors");
             computerChoiceScissors();
             break;
     }  
+
+    return computerChoice;
 }
 
+rockBtn.addEventListener('click', (e) => {
 
-rockBtn.addEventListener('click', () => {
-    console.log(`Player choice: Rock`);
+    const playerChoice = "Rock";
+    computerChoice = displayComputerChoice();
+
+    console.log(`Player choice: ${playerChoice}`);
+    console.log(`Computer choice: ${computerChoice}`);
+
     playerChoiceRock();
-    displayComputerChoice();
+
+    if (playerChoice === "Rock" && computerChoice === "Rock") {
+        winnerResult.innerText = "IT'S A TIE";
+        roundDescription.innerText = "Both entered the same choice";
+    } else if (playerChoice === "Rock" && computerChoice === "Paper") {
+        winnerResult.innerText = "COMPUTER WINS";
+        roundDescription.innerText = "Paper beats Rock";
+        computerScore++
+        displayComputerScore.innerText = `Computer: ${computerScore}`;
+    } else if (playerChoice === "Rock" && computerChoice === "Scissors") {
+        winnerResult.innerText = "YOU WIN";
+        roundDescription.innerText = "Rock beats Scissor";
+        playerScore++;
+        displayPlayerScore.innerText = `Player: ${playerScore}`;
+    }
 })
 
 paperBtn.addEventListener('click', () => {
