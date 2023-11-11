@@ -18,35 +18,33 @@ let computerScore = 0;
 const getComputerChoice = () => {
     let random = Math.floor(Math.random() * 3);
 
-    if (random === 0) {
-        return "Rock";
-    } else if (random === 1) {
-        return "Paper";
-    } else {
-        return "Scissors";
+    switch(random) {
+        case 0:
+            return "Rock";
+            break;
+        case 1:
+            return "Paper";
+            break;
+        case 2:
+            return "Scissors";
+            break;
     }
 }
 
-const computerChoice = getComputerChoice();
-console.log(`Computer choice is: ${computerChoice}`);
-
-// ============= FUNCTIONS TO DISPLAY PLAYER CHOICES =============
+// ============= FUNCTIONS TO DISPLAY PLAYER CHOICES ============= //
 
 const playerChoiceRock = () => {
     if(playerIconChoice.classList.contains('fa-question')) {
         playerIconChoice.classList.remove('fa-question')
         playerIconChoice.classList.add('fa-regular', 'fa-hand-back-fist', 'fa-rotate-90', 'fa-2x');
-        playerIconChoice.style.backgroundColor = '#fddd8b';
         playerChoiceContainer.style.padding = '10px 17px';
     } else if (playerIconChoice.classList.contains('fa-hand')) {
         playerIconChoice.classList.remove('fa-hand')
         playerIconChoice.classList.add('fa-regular', 'fa-hand-back-fist', 'fa-rotate-90', 'fa-2x');
-        playerIconChoice.style.backgroundColor = '#fddd8b';
         playerChoiceContainer.style.padding = '10px 17px';
     } else if (playerIconChoice.classList.contains('fa-hand-scissors', 'fa-flip-horizontal')) {
         playerIconChoice.classList.remove('fa-hand-scissors', 'fa-flip-horizontal');
         playerIconChoice.classList.add('fa-regular', 'fa-hand-back-fist', 'fa-rotate-90', 'fa-2x');
-        playerIconChoice.style.backgroundColor = '#fddd8b';
         playerChoiceContainer.style.padding = '10px 17px';
     }
 }
@@ -55,17 +53,14 @@ const playerChoicePaper = () => {
     if(playerIconChoice.classList.contains('fa-question')) {
         playerIconChoice.classList.remove('fa-question')
         playerIconChoice.classList.add('fa-regular', 'fa-hand', 'fa-1x');
-        playerIconChoice.style.backgroundColor = '#fddd8b';
         playerChoiceContainer.style.padding = '10px 13px';
     } else if (playerIconChoice.classList.contains('fa-hand-back-fist', 'fa-rotate-90')) {
         playerIconChoice.classList.remove('fa-hand-back-fist', 'fa-rotate-90')
         playerIconChoice.classList.add('fa-regular', 'fa-hand', 'fa-1x');
-        playerIconChoice.style.backgroundColor = '#fddd8b';
         playerChoiceContainer.style.padding = '10px 13px';
     } else if (playerIconChoice.classList.contains('fa-hand-scissors', 'fa-flip-horizontal')) {
         playerIconChoice.classList.remove('fa-hand-scissors', 'fa-flip-horizontal');
         playerIconChoice.classList.add('fa-regular', 'fa-hand', 'fa-1x');
-        playerIconChoice.style.backgroundColor = '#fddd8b';
         playerChoiceContainer.style.padding = '10px 13px';
     }
 }
@@ -74,56 +69,104 @@ const playerChoiceScissors = () => {
     if(playerIconChoice.classList.contains('fa-question')) {
         playerIconChoice.classList.remove('fa-question')
         playerIconChoice.classList.add('fa-regular', 'fa-hand-scissors', 'fa-flip-horizontal', 'fa-1x');
-        playerIconChoice.style.backgroundColor = '#fddd8b';
         playerChoiceContainer.style.padding = '10px 13px';
     } else if (playerIconChoice.classList.contains('fa-hand-back-fist', 'fa-rotate-90')) {
         playerIconChoice.classList.remove('fa-hand-back-fist', 'fa-rotate-90')
         playerIconChoice.classList.add('fa-regular', 'fa-hand-scissors', 'fa-flip-horizontal', 'fa-1x');
-        playerIconChoice.style.backgroundColor = '#fddd8b';
         playerChoiceContainer.style.padding = '10px 13px';
     } else if (playerIconChoice.classList.contains('fa-hand')) {
         playerIconChoice.classList.remove('fa-hand')
         playerIconChoice.classList.add('fa-regular', 'fa-hand-scissors', 'fa-flip-horizontal', 'fa-1x');
-        playerIconChoice.style.backgroundColor = '#fddd8b';
         playerChoiceContainer.style.padding = '10px 13px';
     }
 }
 
+// ============= FUNCTIONS TO DISPLAY COMPUTER CHOICES ============= //
 
-
-const displayComputerChoice = () => {
-    if(computerChoice === "Rock") {
-        if (computerIconChoice.classList.contains('fa-question')) {
-            computerIconChoice.classList.remove('fa-question');
-            computerIconChoice.classList.add('fa-regular', 'fa-hand-back-fist', 'fa-rotate-270','fa-2x');
-            computerIconChoice.style.backgroundColor = '#fddd8b';
-            computerChoiceContainer.style.padding = '10px 17px';
-        } 
+const computerChoiceRock = () => {
+    if (computerIconChoice.classList.contains('fa-question')) {
+        computerIconChoice.classList.remove('fa-question');
+        computerIconChoice.classList.add('fa-hand-back-fist', 'fa-rotate-270','fa-2x');
+        computerChoiceContainer.style.padding = '10px 17px';
+    } else if (computerIconChoice.classList.contains('fa-hand')) {
+        computerIconChoice.classList.remove('fa-hand');
+        computerIconChoice.classList.add('fa-hand-back-fist', 'fa-rotate-270','fa-2x');
+        computerChoiceContainer.style.padding = '10px 17px';
+    } else if (computerIconChoice.classList.contains('fa-hand-scissors')) {
+        computerIconChoice.classList.remove('fa-hand-scissors');
+        computerIconChoice.classList.add('fa-hand-back-fist', 'fa-rotate-270','fa-2x');
+        computerChoiceContainer.style.padding = '10px 17px';
     }
 }
 
-displayComputerChoice();
+const computerChoicePaper = () => {
+    if (computerIconChoice.classList.contains('fa-question')) {
+        computerIconChoice.classList.remove('fa-question');
+        computerIconChoice.classList.add('fa-hand', 'fa-1x');
+        computerChoiceContainer.style.padding = '10px 13px';
+    } else if (computerIconChoice.classList.contains('fa-hand-back-fist', 'fa-rotate-270')) {
+        computerIconChoice.classList.remove('fa-hand-back-fist', 'fa-rotate-270');
+        computerIconChoice.classList.add('fa-hand', 'fa-1x');
+        computerChoiceContainer.style.padding = '10px 13px';
+    } else if (computerIconChoice.classList.contains('fa-hand-scissors')) {
+        computerIconChoice.classList.remove('fa-hand-scissors');
+        computerIconChoice.classList.add('fa-hand', 'fa-1x');
+        computerChoiceContainer.style.padding = '10px 13px';
+    }
+}
+
+const computerChoiceScissors = () => {
+    if (computerIconChoice.classList.contains('fa-question')) {
+        computerIconChoice.classList.remove('fa-question');
+        computerIconChoice.classList.add('fa-hand-scissors');
+        computerChoiceContainer.style.padding = '10px 13px';
+    } else if (computerIconChoice.classList.contains('fa-hand-back-fist', 'fa-rotate-270')) {
+        computerIconChoice.classList.remove('fa-hand-back-fist', 'fa-rotate-270');
+        computerIconChoice.classList.add('fa-hand-scissors');
+        computerChoiceContainer.style.padding = '10px 13px';
+    } else if (computerIconChoice.classList.contains('fa-hand')) {
+        computerIconChoice.classList.remove('fa-hand');
+        computerIconChoice.classList.add('fa-hand-scissors');
+        computerChoiceContainer.style.padding = '10px 13px';
+    }
+}
+
+const displayComputerChoice = () => {
+    const computerChoice = getComputerChoice();
+
+    switch (computerChoice) {
+        case "Rock":
+            console.log("Computer choice is Rock");
+            computerChoiceRock()
+            break;
+        case "Paper":
+            console.log("Computer choice: Paper");
+            computerChoicePaper()
+            break;
+        case "Scissors":
+            console.log("Computer choice: Scissors");
+            computerChoiceScissors();
+            break;
+    }  
+}
+
 
 rockBtn.addEventListener('click', () => {
     console.log(`Player choice: Rock`);
     playerChoiceRock();
-
-    // function that will inform computer that playerchoice is rock
-    // const getPlayerChoice = () => {
-    //     return "Rock";
-    // }
-    // const playerChoice = getPlayerChoice();
-    // console.log(`Player choice is: ${playerChoice}`);
+    displayComputerChoice();
 })
 
 paperBtn.addEventListener('click', () => {
     console.log("Player choice: Paper");
     playerChoicePaper(); 
+    displayComputerChoice();
 })
 
 scissorsBtn.addEventListener('click', () => {
     console.log("Player choice: Scissors");
     playerChoiceScissors(); 
+    displayComputerChoice();
 })
 
 
