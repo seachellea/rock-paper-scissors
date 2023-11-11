@@ -138,6 +138,15 @@ footer p {
     font-size: 0.8rem;
 }
 
+footer a {
+    text-decoration: none;
+    color: var(--btn-bg);
+}
+
+footer a:visited, i:visited {
+    color: var(--btn-bg);
+}
+
 /* ================= CSS HOVER AND ANIMATION ================= */
 
 #rock-btn:hover,
