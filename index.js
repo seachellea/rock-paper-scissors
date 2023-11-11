@@ -4,8 +4,7 @@ const roundDescription = document.getElementById('round-descrip'); // will displ
 const playerChoiceContainer = document.getElementById('player-result'); // parent element/container of the icon that will display the choices of computer and player
 const playerIconChoice = document.getElementById('player-choice'); // icon that will display the choice of player
 const computerChoiceContainer = document.getElementById('computer-result'); // parent element/container of the icon that will display computer choice
-// const computerIconChoice = document.getElementById('computer-choice'); // icon that will display the choice of comp
-
+const computerIconChoice = document.getElementById('computer-choice'); // icon that will display the choice of comp
 
 const rockBtn = document.querySelector('#rock-btn'); // button of rock that user will click
 const paperBtn = document.querySelector('#paper-btn'); // button of paper that user will click
@@ -29,13 +28,11 @@ const getComputerChoice = () => {
 }
 
 const computerChoice = getComputerChoice();
-
 console.log(`Computer choice is: ${computerChoice}`);
 
-rockBtn.addEventListener('click', () => {
+// ============= FUNCTIONS TO DISPLAY PLAYER CHOICES =============
 
-    console.log(`Player choice: Rock`);
-
+const playerChoiceRock = () => {
     if(playerIconChoice.classList.contains('fa-question')) {
         playerIconChoice.classList.remove('fa-question')
         playerIconChoice.classList.add('fa-regular', 'fa-hand-back-fist', 'fa-rotate-90', 'fa-2x');
@@ -52,6 +49,64 @@ rockBtn.addEventListener('click', () => {
         playerIconChoice.style.backgroundColor = '#fddd8b';
         playerChoiceContainer.style.padding = '10px 17px';
     }
+}
+
+const playerChoicePaper = () => {
+    if(playerIconChoice.classList.contains('fa-question')) {
+        playerIconChoice.classList.remove('fa-question')
+        playerIconChoice.classList.add('fa-regular', 'fa-hand', 'fa-1x');
+        playerIconChoice.style.backgroundColor = '#fddd8b';
+        playerChoiceContainer.style.padding = '10px 13px';
+    } else if (playerIconChoice.classList.contains('fa-hand-back-fist', 'fa-rotate-90')) {
+        playerIconChoice.classList.remove('fa-hand-back-fist', 'fa-rotate-90')
+        playerIconChoice.classList.add('fa-regular', 'fa-hand', 'fa-1x');
+        playerIconChoice.style.backgroundColor = '#fddd8b';
+        playerChoiceContainer.style.padding = '10px 13px';
+    } else if (playerIconChoice.classList.contains('fa-hand-scissors', 'fa-flip-horizontal')) {
+        playerIconChoice.classList.remove('fa-hand-scissors', 'fa-flip-horizontal');
+        playerIconChoice.classList.add('fa-regular', 'fa-hand', 'fa-1x');
+        playerIconChoice.style.backgroundColor = '#fddd8b';
+        playerChoiceContainer.style.padding = '10px 13px';
+    }
+}
+
+const playerChoiceScissors = () => {
+    if(playerIconChoice.classList.contains('fa-question')) {
+        playerIconChoice.classList.remove('fa-question')
+        playerIconChoice.classList.add('fa-regular', 'fa-hand-scissors', 'fa-flip-horizontal', 'fa-1x');
+        playerIconChoice.style.backgroundColor = '#fddd8b';
+        playerChoiceContainer.style.padding = '10px 13px';
+    } else if (playerIconChoice.classList.contains('fa-hand-back-fist', 'fa-rotate-90')) {
+        playerIconChoice.classList.remove('fa-hand-back-fist', 'fa-rotate-90')
+        playerIconChoice.classList.add('fa-regular', 'fa-hand-scissors', 'fa-flip-horizontal', 'fa-1x');
+        playerIconChoice.style.backgroundColor = '#fddd8b';
+        playerChoiceContainer.style.padding = '10px 13px';
+    } else if (playerIconChoice.classList.contains('fa-hand')) {
+        playerIconChoice.classList.remove('fa-hand')
+        playerIconChoice.classList.add('fa-regular', 'fa-hand-scissors', 'fa-flip-horizontal', 'fa-1x');
+        playerIconChoice.style.backgroundColor = '#fddd8b';
+        playerChoiceContainer.style.padding = '10px 13px';
+    }
+}
+
+
+
+const displayComputerChoice = () => {
+    if(computerChoice === "Rock") {
+        if (computerIconChoice.classList.contains('fa-question')) {
+            computerIconChoice.classList.remove('fa-question');
+            computerIconChoice.classList.add('fa-regular', 'fa-hand-back-fist', 'fa-rotate-270','fa-2x');
+            computerIconChoice.style.backgroundColor = '#fddd8b';
+            computerChoiceContainer.style.padding = '10px 17px';
+        } 
+    }
+}
+
+displayComputerChoice();
+
+rockBtn.addEventListener('click', () => {
+    console.log(`Player choice: Rock`);
+    playerChoiceRock();
 
     // function that will inform computer that playerchoice is rock
     // const getPlayerChoice = () => {
@@ -63,44 +118,12 @@ rockBtn.addEventListener('click', () => {
 
 paperBtn.addEventListener('click', () => {
     console.log("Player choice: Paper");
-
-    if(playerIconChoice.classList.contains('fa-question')) {
-        playerIconChoice.classList.remove('fa-question')
-        playerIconChoice.classList.add('fa-regular', 'fa-hand', 'fa-1x');
-        playerIconChoice.style.backgroundColor = '#fddd8b';
-        playerChoiceContainer.style.padding = '10px 13px';
-    } else if (playerIconChoice.classList.contains('fa-hand-back-fist', 'fa-rotate-90')) {
-        playerIconChoice.classList.remove('fa-hand-back-fist', 'fa-rotate-90')
-        playerIconChoice.classList.add('fa-regular', 'fa-hand', 'fa-1x');
-        playerIconChoice.style.backgroundColor = '#fddd8b';
-        playerChoiceContainer.style.padding = '10px 13px';
-    } else if (playerIconChoice.classList.contains('fa-hand-scissors', 'fa-flip-horizontal')) {
-        playerIconChoice.classList.remove('fa-hand-scissors', 'fa-flip-horizontal');
-        playerIconChoice.classList.add('fa-regular', 'fa-hand', 'fa-1x');
-        playerIconChoice.style.backgroundColor = '#fddd8b';
-        playerChoiceContainer.style.padding = '10px 13px';
-    }
+    playerChoicePaper(); 
 })
 
 scissorsBtn.addEventListener('click', () => {
     console.log("Player choice: Scissors");
-
-    if(playerIconChoice.classList.contains('fa-question')) {
-        playerIconChoice.classList.remove('fa-question')
-        playerIconChoice.classList.add('fa-regular', 'fa-hand-scissors', 'fa-flip-horizontal', 'fa-1x');
-        playerIconChoice.style.backgroundColor = '#fddd8b';
-        playerChoiceContainer.style.padding = '10px 13px';
-    } else if (playerIconChoice.classList.contains('fa-hand-back-fist', 'fa-rotate-90')) {
-        playerIconChoice.classList.remove('fa-hand-back-fist', 'fa-rotate-90')
-        playerIconChoice.classList.add('fa-regular', 'fa-hand-scissors', 'fa-flip-horizontal', 'fa-1x');
-        playerIconChoice.style.backgroundColor = '#fddd8b';
-        playerChoiceContainer.style.padding = '10px 13px';
-    } else if (playerIconChoice.classList.contains('fa-hand')) {
-        playerIconChoice.classList.remove('fa-hand')
-        playerIconChoice.classList.add('fa-regular', 'fa-hand-scissors', 'fa-flip-horizontal', 'fa-1x');
-        playerIconChoice.style.backgroundColor = '#fddd8b';
-        playerChoiceContainer.style.padding = '10px 13px';
-    }
+    playerChoiceScissors(); 
 })
 
 
