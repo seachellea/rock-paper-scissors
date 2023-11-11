@@ -1,15 +1,18 @@
 // Variables
-const winnerResult = document.getElementById('winner-result');
-const roundDescription = document.getElementById('round-descrip');
-const displayContainer = document.getElementsByClassName('rps-box');
-const playerIconChoice = document.getElementById('player-choice');
-const computerIconChoice = document.getElementById('computer-choice');
+const winnerResult = document.getElementById('winner-result'); // will display who won (PLAYER WINS)
+const roundDescription = document.getElementById('round-descrip'); // will display details of that round (Paper beats Rock)
+const playerChoiceContainer = document.getElementById('player-result'); // parent element/container of the icon that will display the choices of computer and player
+const playerIconChoice = document.getElementById('player-choice'); // icon that will display the choice of player
+const computerChoiceContainer = document.getElementById('computer-result'); // parent element/container of the icon that will display computer choice
+// const computerIconChoice = document.getElementById('computer-choice'); // icon that will display the choice of comp
 
-const rockBtn = document.querySelector('#rock-btn');
-const paperBtn = document.querySelector('#paper-btn');
-const scissorsBtn = document.querySelector('#scissors-btn');
+// const icon = document.querySelector('i');
 
-const rockIcon = document.querySelector('#rock-icon');
+const rockBtn = document.querySelector('#rock-btn'); // button of rock that user will click
+const paperBtn = document.querySelector('#paper-btn'); // button of paper that user will click
+const scissorsBtn = document.querySelector('#scissors-btn'); // button of scissors that user will click
+
+const rockIcon = document.querySelector('#rock-icon'); // actual rock icon
 
 let playerScore = 0;
 let computerScore = 0;
@@ -27,18 +30,46 @@ const getComputerChoice = () => {
 }
 
 const computerChoice = getComputerChoice();
-let playerChoice = "";
-console.log(computerChoice);
+
+console.log(`Computer choice is: ${computerChoice}`);
 
 rockBtn.addEventListener('click', () => {
-    playerChoice = "Rock";
-    console.log(playerChoice);
-    
+
+    if(playerIconChoice.classList.contains('fa-question')) {
+        playerIconChoice.classList.remove('fa-question')
+        playerIconChoice.classList.add('fa-regular', 'fa-hand-back-fist', 'fa-rotate-90', 'fa-2x');
+        playerIconChoice.style.backgroundColor = '#fddd8b';
+        playerChoiceContainer.style.padding = '10px 17px';
+    } else if (playerIconChoice.classList.contains('fa-hand')) {
+        playerIconChoice.classList.remove('fa-hand')
+        playerIconChoice.classList.add('fa-regular', 'fa-hand-back-fist', 'fa-rotate-90', 'fa-2x');
+        playerIconChoice.style.backgroundColor = '#fddd8b';
+        playerChoiceContainer.style.padding = '10px 17px';
+    }
+
+    // function that will inform computer that playerchoice is rock
+    // const getPlayerChoice = () => {
+    //     return "Rock";
+    // }
+    // const playerChoice = getPlayerChoice();
+    // console.log(`Player choice is: ${playerChoice}`);
 })
 
 paperBtn.addEventListener('click', () => {
     playerChoice = "Paper";
     console.log(playerChoice);
+
+    if(playerIconChoice.classList.contains('fa-question')) {
+        playerIconChoice.classList.remove('fa-question')
+        playerIconChoice.classList.add('fa-regular', 'fa-hand', 'fa-1x');
+        playerIconChoice.style.backgroundColor = '#fddd8b';
+        playerChoiceContainer.style.padding = '10px 13px';
+    } else if (playerIconChoice.classList.contains('fa-hand-back-fist', 'fa-rotate-90')) {
+        playerIconChoice.classList.remove('fa-hand-back-fist', 'fa-rotate-90')
+        playerIconChoice.classList.add('fa-regular', 'fa-hand', 'fa-1x');
+        playerIconChoice.style.backgroundColor = '#fddd8b';
+        playerChoiceContainer.style.padding = '10px 13px';
+    } 
 })
 
 scissorsBtn.addEventListener('click', () => {
