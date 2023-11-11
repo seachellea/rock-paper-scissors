@@ -37,6 +37,7 @@ body {
     border-radius: 11px;
     box-shadow: 10px 10px 0px 0px #421B2B;
     background-color: transparent;
+    margin: 0 20px;
 }
 
 .header {
@@ -250,5 +251,25 @@ footer a:visited, i:visited {
     to {
         top: 50%;
         opacity: 1;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    body {
+        height: auto;
+    }
+
+    .container {
+        margin: 0 25px;
+    }
+
+    .header {
+        font-size: 1rem;
+    }
+
+    .rps-choice {
+        display: flex;
+        flex-shrink: 0;
+        width: 30%;
     }
 }
