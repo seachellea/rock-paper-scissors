@@ -33,5 +33,5 @@ A self-made project that is part of a free, open-source website called The Odin 
 ![Landing Page](img/Screenshot%202023-11-12%20144150.png)
 ![Displaying Choices](img/Screenshot%202023-11-12%20144159.png)
 ![Hover states](img/Screenshot%202023-11-12%20144247.png)
-![You Won - Modal](img/Screenshot%202023-11-12%20144212.png)
-![Computer won - Modal](img/Screenshot%202023-11-12%20144302.png)
+![You Won - Modal](img/Screenshot%202023-11-12%20160425.png)
+![Computer won - Modal](img/Screenshot%202023-11-12%20160450.png)
