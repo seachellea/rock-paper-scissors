@@ -21,6 +21,7 @@ const displayComputerScore = document.querySelector('#computer-score');
 let modalContainer = document.querySelector('.modal-container');
 const playAgainBtn = document.querySelector('#modal-button');
 const modalMessage = document.querySelector('#modal-message');
+const finalResult = document.querySelector('#final-result');
 
 let playerScore = 0;
 let computerScore = 0;
@@ -108,18 +109,18 @@ const evaluateRound = (computerChoice, playerChoice) => {
         // updateScoreboard which increments and displays the score every round
     if (playerChoice === computerChoice) {
         updateScoreboard('TIE');
-        showModal();
     }
     else if (playerChoice === "Scissors" && computerChoice === "Paper" ||
     playerChoice === "Paper" && computerChoice === "Rock" ||
     playerChoice === "Rock" && computerChoice === "Scissors") {
         updateScoreboard('PLAYER');
-        showModal();
+        
     }
     else {
         updateScoreboard('COMPUTER');
-        showModal();
     }
+
+    showModal();
 }
 
 const updateScoreboard = (result) => {
@@ -148,10 +149,15 @@ const showModal = () => {
 
         if(playerScore === 5) {
             modalMessage.innerText = "YOU WON";
+            finalResult.innerText = `You won by a ${playerScore - computerScore}-point lead`;
+
         } else if (computerScore === 5) {
             modalMessage.innerText = "YOU LOST";
+            finalResult.innerText = `Computer won by a ${computerScore - playerScore}-point lead`;
+
         } else {
             modalMessage.innerText = "IT'S A TIE";
+
         }
         
     } else {
