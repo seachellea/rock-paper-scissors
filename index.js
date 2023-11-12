@@ -196,6 +196,8 @@ const resetGame = () => {
 
     // Reset modal message
     modalMessage.innerText = '';
+    modal.style.width = '380px';
+    modal.style.height = '210px';
 
     // Hide modal
     modalContainer.style.display = 'none';
