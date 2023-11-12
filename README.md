@@ -1,9 +1,9 @@
 # Rock Paper Scissors
-A self-project that I created that is part of the curriculum of an open-source resource called The Odin Project. The design of this output is inspired by a Nintendo Game Boy
+A self-project that is part of the curriculum of an open-source resource called The Odin Project. The design of this output was inspired by a Nintendo Game Boy
 
-[Live Site »](https://www.google.com)
+[Live Site »](https://seachellea.github.io/rock-paper-scissors/)
 
-[Figma Link »](https://www.google.com)
+[Figma Link »](https://www.figma.com/file/KsFLJXJcJss9SqmOwMSIPu/Rock-Paper-Scissors?type=design&node-id=0%3A1&mode=design&t=LYfr4Db2dhcrWwdL-1)
 
 ### Tools Used
 <picture>
