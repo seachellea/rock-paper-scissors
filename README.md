@@ -1,5 +1,5 @@
 # Rock Paper Scissors
-A self-project that is part of the curriculum of an open-source resource called The Odin Project. The design of this output was inspired by a Nintendo Game Boy
+A self-made project that is part of a free, open-source website called The Odin Project. The design of this output was inspired by the Nintendo Game Boy
 
 [Live Site »](https://seachellea.github.io/rock-paper-scissors/)
 
