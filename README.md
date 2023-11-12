@@ -17,6 +17,7 @@ A self-project that is part of the curriculum of an open-source resource called 
 </picture>
 
 ### What I Learned
+- Basic Git branching and merging
 - Working from design to code
 - JavaScript DOM Manipulation
 - JavaScript functions
