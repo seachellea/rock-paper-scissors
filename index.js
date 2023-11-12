@@ -19,6 +19,7 @@ const displayComputerScore = document.querySelector('#computer-score');
 
 // variables for modal
 let modalContainer = document.querySelector('.modal-container');
+const modal = document.querySelector('#modal');
 const playAgainBtn = document.querySelector('#modal-button');
 const modalMessage = document.querySelector('#modal-message');
 const finalResult = document.querySelector('#final-result');
@@ -148,11 +149,13 @@ const showModal = () => {
         modalContainer.style.display = 'block';
 
         if(playerScore === 5) {
-            modalMessage.innerText = "YOU WON";
+            modalMessage.innerText = "CONGRATULATIONS!";
             finalResult.innerText = `You won by a ${playerScore - computerScore}-point lead`;
 
         } else if (computerScore === 5) {
-            modalMessage.innerText = "YOU LOST";
+            modalMessage.innerText = "BETTER LUCK NEXT TIME";
+            modal.style.width = '480px';
+            modal.style.height = '230px';
             finalResult.innerText = `Computer won by a ${computerScore - playerScore}-point lead`;
 
         } else {
