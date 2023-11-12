@@ -2,9 +2,10 @@
 A self-project that I created that is part of the curriculum of an open-source resource called The Odin Project. The design of this output is inspired by a Nintendo Game Boy
 
 [Live Site »](https://www.google.com)
+
 [Figma Link »](https://www.google.com)
 
-## Tools Used
+### Tools Used
 <picture>
   <img src="https://github.com/seachellea/faq-accordion/assets/143592080/7b37dbbb-41ef-447e-8b47-ec742b42296d" width="40" height="40" alt="HTML"/>
 </picture>
@@ -27,9 +28,9 @@ A self-project that I created that is part of the curriculum of an open-source r
 - Add a confetti background when user wins
 - Mobile Responsiveness
 
-### Output Screenshots
+## Output Screenshots
 ![Landing Page](img/Screenshot%202023-11-12%20144150.png)
 ![Displaying Choices](img/Screenshot%202023-11-12%20144159.png)
-![You Won - Modal](img/Screenshot%202023-11-12%20144212.png)
 ![Hover states](img/Screenshot%202023-11-12%20144247.png)
+![You Won - Modal](img/Screenshot%202023-11-12%20144212.png)
 ![Computer won - Modal](img/Screenshot%202023-11-12%20144302.png)
